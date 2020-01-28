@@ -45,6 +45,8 @@ uses
   {$ELSE}
   Windows,
   {$ENDIF}
+  System.IOUtils,
+  System.SysUtils,
   uCEFApplicationCore;
 
 // CEF3 needs to set the LARGEADDRESSAWARE flag which allows 32-bit processes
@@ -63,13 +65,13 @@ begin
 
   // In case you want to use custom directories for the CEF3 binaries, cache
   // and user data.
-{
+
   GlobalCEFApp.FrameworkDirPath     := 'cef';
   GlobalCEFApp.ResourcesDirPath     := 'cef';
   GlobalCEFApp.LocalesDirPath       := 'cef\locales';
-  GlobalCEFApp.cache                := 'cef\cache';
-  GlobalCEFApp.UserDataPath         := 'cef\User Data';
-}
+  GlobalCEFApp.Cache                := TPath.Combine(GetEnvironmentVariable('TEMP'), 'agdatacefcache');
+  GlobalCEFApp.UserDataPath         := TPath.Combine(GetEnvironmentVariable('TEMP'), 'agdatacefcache');
+
 
   GlobalCEFApp.StartSubProcess;
   GlobalCEFApp.Free;
