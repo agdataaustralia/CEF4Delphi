@@ -69,7 +69,7 @@ begin
   GlobalCEFApp.FrameworkDirPath     := 'cef';
   GlobalCEFApp.ResourcesDirPath     := 'cef';
   GlobalCEFApp.LocalesDirPath       := 'cef\locales';
-  GlobalCEFApp.Cache                := TPath.Combine(GetEnvironmentVariable('TEMP'), 'agdatacefcache');
+  GlobalCEFApp.Cache                := '%APPDATA%\AGDATA\Phoenix\Common\agdatacefcache';
   GlobalCEFApp.UserDataPath         := TPath.Combine(GetEnvironmentVariable('TEMP'), 'agdatacefcache');
 
 
